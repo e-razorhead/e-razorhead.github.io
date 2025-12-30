@@ -21,12 +21,12 @@ description: >- # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your site header, meta descriptions
   for search engines, and feed descriptions.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://e-razorhead.github.io" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  e-razorhead
 
 # Build settings
-# theme: minima  # Using custom theme
+# No theme - using custom layouts and styles
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
