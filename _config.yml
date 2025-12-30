@@ -26,7 +26,7 @@ twitter_username: jekyllrb
 github_username:  e-razorhead
 
 # Build settings
-theme: minima
+# theme: minima  # Using custom theme
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

@@ -1,0 +1,617 @@
+/* Retro MySpace Style CSS */
+
+:root {
+  --bg-dark: #0d0e1a;
+  --bg-darker: #050510;
+  --bg-sidebar: #151620;
+  --text-primary: #d4b3ff;
+  --text-secondary: #c9a5f0;
+  --text-dim: #a78bc4;
+  --accent: #b794f6;
+  --accent-alt: #c4a1f7;
+  --accent-bright: #e9d5ff;
+  --accent-yellow: #f7e6a8;
+  --accent-yellow-bright: #fef3c7;
+  --border-color: #3a3d55;
+  --terminal-bg: #10121f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Share Tech Mono', 'Space Mono', 'Courier New', monospace;
+  background: var(--bg-dark);
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(183, 148, 246, 0.05) 2px, rgba(183, 148, 246, 0.05) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(183, 148, 246, 0.05) 2px, rgba(183, 148, 246, 0.05) 4px);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 22px;
+}
+
+/* Chinese text styling - retro but readable */
+/* Noto Sans SC is a clean, readable font that works well for Chinese characters */
+/* It will be applied to .retro-title which contains Chinese text */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  background: var(--bg-sidebar);
+  border-right: 3px solid var(--border-color);
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.retro-avatar {
+  margin-bottom: 15px;
+}
+
+.pixel-avatar {
+  font-size: 64px;
+  display: inline-block;
+  filter: contrast(1.2) brightness(0.9);
+  text-shadow: 
+    2px 2px 0 var(--bg-darker),
+    4px 4px 0 var(--text-dim);
+  animation: pixelate 0.1s infinite;
+}
+
+@keyframes pixelate {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(1px, 1px); }
+  50% { transform: translate(0, 0); }
+  75% { transform: translate(-1px, -1px); }
+}
+
+.site-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 20px;
+  color: var(--accent);
+  text-shadow: 
+    2px 2px 0 var(--bg-darker),
+    0 0 10px var(--accent);
+  letter-spacing: 1px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.sidebar-nav {
+  margin-bottom: 30px;
+}
+
+.nav-section {
+  margin-bottom: 25px;
+}
+
+.nav-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  color: var(--accent-yellow);
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 0 var(--bg-darker), 0 0 8px var(--accent-yellow);
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.hashtag-menu {
+  list-style: none;
+}
+
+.hashtag-menu li {
+  margin-bottom: 8px;
+}
+
+.hashtag-link {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  font-size: 20px;
+  text-transform: lowercase;
+}
+
+.hashtag-link:hover {
+  color: var(--accent-yellow-bright);
+  border-color: var(--accent-yellow);
+  background: rgba(247, 230, 168, 0.15);
+  text-shadow: 0 0 8px var(--accent-yellow);
+  transform: translateX(5px);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 2px dashed var(--border-color);
+}
+
+.retro-counter {
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+}
+
+.counter-label {
+  display: block;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.counter-value {
+  display: block;
+  color: var(--accent-yellow);
+  font-size: 24px;
+  text-shadow: 0 0 10px var(--accent-yellow);
+  font-weight: 400;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.terminal-window {
+  background: var(--terminal-bg);
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  box-shadow: 
+    0 0 20px rgba(183, 148, 246, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+  min-height: 500px;
+}
+
+.terminal-header {
+  background: var(--bg-sidebar);
+  padding: 10px 15px;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--bg-darker);
+}
+
+.terminal-dot.red {
+  background: #d4a5c4;
+}
+
+.terminal-dot.yellow {
+  background: #e9d5c7;
+}
+
+.terminal-dot.green {
+  background: #c4a1f7;
+}
+
+.terminal-title {
+  margin-left: auto;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  color: var(--accent-yellow);
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-shadow: 0 0 5px var(--accent-yellow);
+}
+
+.terminal-body {
+  padding: 30px;
+  color: var(--text-primary);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 22px;
+}
+
+/* Post Styles */
+.post {
+  margin-bottom: 30px;
+}
+
+.post-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.post-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0 var(--bg-darker);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.post-meta {
+  font-size: 16px;
+  color: var(--text-dim);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.post-meta time {
+  color: var(--accent-yellow);
+  text-shadow: 0 0 5px var(--accent-yellow);
+}
+
+.post-categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.category-tag {
+  color: var(--accent-alt);
+  text-decoration: none;
+  padding: 3px 8px;
+  border: 1px solid var(--accent-alt);
+}
+
+.category-tag:hover {
+  background: rgba(247, 230, 168, 0.2);
+  color: var(--accent-yellow-bright);
+  border-color: var(--accent-yellow);
+  text-shadow: 0 0 8px var(--accent-yellow);
+}
+
+.post-content {
+  line-height: 1.9;
+  font-size: 18px;
+}
+
+.post-content p {
+  margin-bottom: 15px;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--accent);
+  margin: 25px 0 20px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.post-content a {
+  color: var(--accent-alt);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent-alt);
+}
+
+.post-content a:hover {
+  color: var(--accent-bright);
+  border-bottom-color: var(--accent);
+  text-shadow: 0 0 8px var(--accent);
+}
+
+.post-content code {
+  background: var(--bg-darker);
+  padding: 3px 8px;
+  border: 1px solid var(--border-color);
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--accent-alt);
+  font-size: 16px;
+}
+
+.post-content pre {
+  background: var(--bg-darker);
+  padding: 15px;
+  border: 2px solid var(--border-color);
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.post-content pre code {
+  border: none;
+  padding: 0;
+}
+
+.post-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px dashed var(--border-color);
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s;
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  color: var(--accent-bright);
+  border-color: var(--accent);
+  background: rgba(183, 148, 246, 0.15);
+}
+
+/* Home Page Styles */
+.home {
+  padding: 10px;
+}
+
+.welcome-section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.retro-title {
+  font-family: 'Noto Sans SC', 'Share Tech Mono', monospace;
+  font-size: 36px;
+  color: var(--accent);
+  text-shadow: 
+    3px 3px 0 var(--bg-darker),
+    0 0 20px var(--accent);
+  margin-bottom: 25px;
+  line-height: 1.5;
+  animation: blink 2s infinite;
+  font-weight: 500;
+  letter-spacing: 4px;
+  /* Better spacing for Chinese characters */
+  word-spacing: 0.2em;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.7; }
+}
+
+.retro-subtitle {
+  font-size: 24px;
+  color: var(--text-secondary);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.section-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 22px;
+  color: var(--accent-yellow);
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 0 var(--bg-darker), 0 0 10px var(--accent-yellow);
+  font-weight: 400;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+.post-item:hover {
+  border-color: var(--accent);
+  background: rgba(183, 148, 246, 0.15);
+  box-shadow: 0 0 15px rgba(183, 148, 246, 0.4);
+}
+
+.post-link {
+  display: block;
+  text-decoration: none;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.post-date {
+  color: var(--accent-yellow);
+  font-size: 16px;
+  margin-right: 15px;
+  text-shadow: 0 0 5px var(--accent-yellow);
+}
+
+.post-title-link {
+  color: var(--text-secondary);
+  font-size: 19px;
+}
+
+.post-link:hover .post-title-link {
+  color: var(--accent-bright);
+  text-shadow: 0 0 8px var(--accent);
+}
+
+.post-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tag {
+  color: var(--accent-yellow);
+  font-size: 18px;
+  padding: 4px 8px;
+  border: 1px solid var(--accent-yellow);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+}
+
+.retro-text {
+  font-size: 24px;
+  color: var(--text-dim);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border: 2px solid var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Floating Pixelated Rose */
+.floating-rose {
+  position: fixed;
+  bottom: -50px;
+  left: -50px;
+  z-index: 1000;
+  pointer-events: none;
+  animation: floatRose 35s ease-in-out infinite;
+  will-change: transform;
+}
+
+.rose-emoji {
+  font-size: 40px;
+  filter: 
+    grayscale(100%) 
+    brightness(2) 
+    contrast(1.5)
+    saturate(0)
+    drop-shadow(0 0 12px rgba(192, 192, 192, 0.8))
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  transform: rotate(-15deg) scale(1);
+  animation: roseFloat 6s ease-in-out infinite;
+  display: inline-block;
+  /* Force pixelation */
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+@keyframes floatRose {
+  0% {
+    left: -50px;
+    bottom: -50px;
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  15% {
+    left: 10%;
+    bottom: 15%;
+  }
+  30% {
+    left: 25%;
+    bottom: 40%;
+  }
+  45% {
+    left: 45%;
+    bottom: 60%;
+  }
+  60% {
+    left: 65%;
+    bottom: 75%;
+  }
+  75% {
+    left: 85%;
+    bottom: 90%;
+  }
+  90% {
+    left: calc(100vw + 50px);
+    bottom: calc(100vh + 50px);
+    opacity: 1;
+  }
+  100% {
+    left: calc(100vw + 50px);
+    bottom: calc(100vh + 50px);
+    opacity: 0;
+  }
+}
+
+@keyframes roseFloat {
+  0% {
+    transform: translateY(0px) rotate(-18deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-12deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-20deg) scale(1.03);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-14deg) scale(1.01);
+  }
+  100% {
+    transform: translateY(0px) rotate(-18deg) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 3px solid var(--border-color);
+  }
+  
+  .main-content {
+    padding: 15px;
+  }
+  
+  .retro-title {
+    font-size: 24px;
+  }
+  
+  .floating-rose {
+    display: none; /* Hide on mobile for better performance */
+  }
+}
+

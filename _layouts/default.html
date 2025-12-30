@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  {% feed_meta %}
+  {% seo %}
+</head>
+<body>
+  <div class="container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="retro-avatar">
+          <div class="pixel-avatar">👤</div>
+        </div>
+        <h1 class="site-title">{{ site.title | default: "MY BLOG" }}</h1>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <h2 class="nav-title"># TOPICS</h2>
+          <ul class="hashtag-menu">
+            {% for category in site.categories %}
+              <li><a href="/#{{ category[0] | slugify }}" class="hashtag-link">#{{ category[0] }}</a></li>
+            {% endfor %}
+            {% if site.categories.size == 0 %}
+              <li><a href="/" class="hashtag-link">#home</a></li>
+              <li><a href="/about" class="hashtag-link">#about</a></li>
+              <li><a href="/posts" class="hashtag-link">#posts</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        
+        <div class="nav-section">
+          <h2 class="nav-title"># LINKS</h2>
+          <ul class="hashtag-menu">
+            <li><a href="/" class="hashtag-link">#home</a></li>
+            <li><a href="/about" class="hashtag-link">#about</a></li>
+            {% if site.github_username %}
+            <li><a href="https://github.com/{{ site.github_username }}" class="hashtag-link" target="_blank">#github</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="retro-counter">
+          <span class="counter-label">VISITORS:</span>
+          <span class="counter-value">0001</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">{{ page.title | default: "TERMINAL" }}</span>
+        </div>
+        <div class="terminal-body">
+          {{ content }}
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Floating Pixelated Rose -->
+  <div class="floating-rose">
+    <div class="rose-emoji">🌹</div>
+  </div>
+
+  <script>
+    // Simple visitor counter (localStorage)
+    if (typeof(Storage) !== "undefined") {
+      var visits = localStorage.getItem('visits') || 0;
+      visits = parseInt(visits) + 1;
+      localStorage.setItem('visits', visits);
+      document.querySelector('.counter-value').textContent = String(visits).padStart(4, '0');
+    }
+  </script>
+</body>
+</html>
+
