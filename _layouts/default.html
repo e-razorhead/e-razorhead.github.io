@@ -13,12 +13,57 @@
   {% seo %}
 </head>
 <body>
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <div class="mobile-header-content">
+      <div class="mobile-profile-icon">
+        <a href="{{ '/' | relative_url }}" class="profile-link">
+          <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="Profile" class="pixel-avatar profile-image">
+        </a>
+      </div>
+      <h1 class="mobile-site-title">{{ site.title | default: "MY BLOG" }}</h1>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-section">
+        <h2 class="mobile-nav-title"># TOPICS</h2>
+        <ul class="mobile-hashtag-menu">
+          {% for category in site.categories %}
+            <li><a href="/#{{ category[0] | slugify }}" class="mobile-hashtag-link">#{{ category[0] }}</a></li>
+          {% endfor %}
+          {% if site.categories.size == 0 %}
+            <li><a href="/" class="mobile-hashtag-link">#home</a></li>
+            <li><a href="/about" class="mobile-hashtag-link">#about</a></li>
+            <li><a href="/posts" class="mobile-hashtag-link">#posts</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="mobile-nav-section">
+        <h2 class="mobile-nav-title"># LINKS</h2>
+        <ul class="mobile-hashtag-menu">
+          <li><a href="/" class="mobile-hashtag-link">#home</a></li>
+          <li><a href="/about" class="mobile-hashtag-link">#about</a></li>
+          {% if site.github_username %}
+          <li><a href="https://github.com/{{ site.github_username }}" class="mobile-hashtag-link" target="_blank">#github</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
   <div class="container">
     <!-- Left Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="retro-avatar">
-          <div class="pixel-avatar">👤</div>
+          <a href="{{ '/' | relative_url }}" class="profile-link">
+            <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="Profile" class="pixel-avatar profile-image">
+          </a>
         </div>
         <h1 class="site-title">{{ site.title | default: "MY BLOG" }}</h1>
       </div>
@@ -79,14 +124,55 @@
     <div class="rose-emoji">🌹</div>
   </div>
 
+  <!-- Floating leaves -->
+  <div class="floating-leaf floating-leaf-1">
+    <div class="leaf-emoji">🍃</div>
+  </div>
+  <div class="floating-leaf floating-leaf-2">
+    <div class="leaf-emoji">🍃</div>
+  </div>
+  <div class="floating-leaf floating-leaf-4">
+    <div class="leaf-emoji">🍃</div>
+  </div>
+  <div class="floating-leaf floating-leaf-5">
+    <div class="leaf-emoji">🍃</div>
+  </div>
+  <div class="floating-leaf floating-leaf-6">
+    <div class="leaf-emoji">🍃</div>
+  </div>
+
   <script>
     // Simple visitor counter (localStorage)
     if (typeof(Storage) !== "undefined") {
       var visits = localStorage.getItem('visits') || 0;
       visits = parseInt(visits) + 1;
       localStorage.setItem('visits', visits);
-      document.querySelector('.counter-value').textContent = String(visits).padStart(4, '0');
+      var counter = document.querySelector('.counter-value');
+      if (counter) {
+        counter.textContent = String(visits).padStart(4, '0');
+      }
     }
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuToggle = document.querySelector('.mobile-menu-toggle');
+      var mobileNav = document.getElementById('mobileNav');
+      
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', function() {
+          mobileNav.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.mobile-header')) {
+            mobileNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>

@@ -14,17 +14,14 @@
 # "" around your site's title/subtitle/tagline are optional
 # e.g. title: "My Awesome Site" or title: My Awesome Site
 
-title: Your Name
-email: your-email@example.com
+title: 剃刀
+email: n/a
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your site header, meta descriptions
-  for search engines, and feed descriptions.
+  碎碎念的地方。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://e-razorhead.github.io" # the base hostname & protocol for your site
 twitter_username: jekyllrb
-github_username:  e-razorhead
-
+github_username: e-razorhead
 # Build settings
 # No theme - using custom layouts and styles
 plugins:
