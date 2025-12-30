@@ -49,6 +49,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
+  display: block !important;
   width: 280px;
   background: var(--bg-sidebar);
   border-right: 3px solid var(--border-color);
@@ -984,7 +985,7 @@ body {
   }
   
   .sidebar {
-    display: none; /* Hide desktop sidebar on mobile */
+    display: none !important; /* Hide desktop sidebar on mobile */
   }
   
   .container {
