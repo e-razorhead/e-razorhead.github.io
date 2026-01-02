@@ -328,12 +328,42 @@ body {
 
 .post-content h1,
 .post-content h2,
-.post-content h3 {
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
   font-family: 'Share Tech Mono', monospace;
-  color: var(--accent);
+  color: var(--accent-yellow);
   margin: 25px 0 20px 0;
-  font-size: 18px;
   font-weight: 400;
+  text-shadow: 
+    1px 1px 0 var(--bg-darker),
+    0 0 10px var(--accent-yellow),
+    0 0 20px rgba(247, 230, 168, 0.3);
+}
+
+.post-content h1 {
+  font-size: 22px;
+}
+
+.post-content h2 {
+  font-size: 20px;
+}
+
+.post-content h3 {
+  font-size: 18px;
+}
+
+.post-content h4 {
+  font-size: 17px;
+}
+
+.post-content h5 {
+  font-size: 16px;
+}
+
+.post-content h6 {
+  font-size: 15px;
 }
 
 .post-content a {
@@ -368,6 +398,33 @@ body {
 .post-content pre code {
   border: none;
   padding: 0;
+}
+
+/* Markdown lists styling */
+.post-content ul,
+.post-content ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.post-content ul li {
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.post-content ul li::marker {
+  color: var(--accent-yellow);
+  font-size: 1.2em;
+}
+
+.post-content ol li {
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.post-content ol li::marker {
+  color: var(--accent-yellow);
+  font-weight: bold;
 }
 
 .post-footer {
@@ -1023,10 +1080,25 @@ body {
     font-size: 14px;
   }
 
-  .post-content h1,
-  .post-content h2,
+  .post-content h1 {
+    font-size: 20px;
+  }
+  
+  .post-content h2 {
+    font-size: 18px;
+  }
+  
   .post-content h3 {
+    font-size: 17px;
+  }
+  
+  .post-content h4 {
     font-size: 16px;
+  }
+  
+  .post-content h5,
+  .post-content h6 {
+    font-size: 15px;
   }
   
   .floating-rose {
