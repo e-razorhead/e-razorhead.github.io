@@ -54,6 +54,12 @@
           {% if site.github_username %}
           <li><a href="https://github.com/{{ site.github_username }}" class="mobile-hashtag-link" target="_blank">#github</a></li>
           {% endif %}
+          {% if site.mastodon_profile %}
+          <li><a href="{{ site.mastodon_profile }}" class="mobile-hashtag-link" target="_blank" rel="me">#mastodon</a></li>
+          {% endif %}
+          {% if site.douban_profile %}
+          <li><a href="{{ site.douban_profile }}" class="mobile-hashtag-link" target="_blank">#douban</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
@@ -93,6 +99,12 @@
             <li><a href="/about" class="hashtag-link">#about</a></li>
             {% if site.github_username %}
             <li><a href="https://github.com/{{ site.github_username }}" class="hashtag-link" target="_blank">#github</a></li>
+            {% endif %}
+            {% if site.mastodon_profile %}
+            <li><a href="{{ site.mastodon_profile }}" class="hashtag-link" target="_blank" rel="me">#mastodon</a></li>
+            {% endif %}
+            {% if site.douban_profile %}
+            <li><a href="{{ site.douban_profile }}" class="hashtag-link" target="_blank">#douban</a></li>
             {% endif %}
           </ul>
         </div>
