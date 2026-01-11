@@ -22,7 +22,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   转眼疫情过去了五六年了，我也失去了一种年轻的特权，一种曾经其实不需要太对自己诚实就能持续有着动力向前的特权。挚友说，该是时候了，你不能再把那种时不时人生中的clarity当作是一种方便食品，你需要通过写作去播种去耕耘收获一种更透明更富有智慧的动力。<br><br>
   所以听劝的我来了。开始写作吧，算是给自己的一份礼物。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://e-razorhead.github.io" # the base hostname & protocol for your site
+url: "https://tidao.blog" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 mastodon_profile: https://m.cmx.im/@tidao
 douban_profile: https://www.douban.com/people/63351658
