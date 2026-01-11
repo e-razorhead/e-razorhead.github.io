@@ -185,6 +185,16 @@
           }
         });
       }
+
+      // Make all links in post content open in new tab
+      var postLinks = document.querySelectorAll('.post-content a');
+      postLinks.forEach(function(link) {
+        // Check if it's an external link
+        if (link.hostname !== window.location.hostname || link.getAttribute('href').startsWith('http')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
     });
   </script>
 </body>
